@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "sku": "PC01",
+      "name": "Intel Low End Pc",
+      "price": 800, 
+      "qty": 0,
+      "specs": {
+        "processor": "Intel Core I3 3.5 GHz 4-Core",
+        "memory": "16 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "none"
+      }
+    },
+    {
+      "sku": "PC02",
+      "name": "Amd Low End Pc",
+      "price": 800, 
+      "qty": 0,
+      "specs": {
+        "processor": "Amd Ryzen 5 4.1 GHz 6-Core",
+        "memory": "16 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "none"
+      }
+    },
+    {
+      "sku": "PC03",
+      "name": "Intel Low End Gaming PC",
+      "price": 1200, 
+      "qty": 0,
+      "specs": {
+        "processor": "Intel Core I3 3.5 GHz 4-Core",
+        "memory": "16 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3060 12 GB"
+      }
+    },
+    {
+      "sku": "PC04",
+      "name": "Amd Low End Gaming PC",
+      "price": 1200, 
+      "qty": 0,
+      "specs": {
+        "processor": "Amd Ryzen 5 4.1 GHz 6-Core",
+        "memory": "16 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3060 12 GB"
+      }
+    },
+    {
+      "sku": "PC05",
+      "name": "Intel Middle End Gaming PC",
+      "price": 1500, 
+      "qty": 0,
+      "specs": {
+        "processor": "Intel Core I5 3.5 GHz 14-Core",
+        "memory": "32 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3060 12 GB"
+      }
+    },
+    {
+      "sku": "PC06",
+      "name": "Amd Middle End Gaming PC",
+      "price": 1400, 
+      "qty": 0,
+      "specs": {
+        "processor": "Amd Ryzen 7 4.5 GHz 8-Core",
+        "memory": "32 GB DDR5-5200 Corsair Memory",
+        "storage": "1TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3060 12 GB"
+      }
+    },
+    {
+      "sku": "PC07",
+      "name": "Intel High End Gaming PC",
+      "price": 2300, 
+      "qty": 0,
+      "specs": {
+        "processor": "Intel Core I7 3.4 GHz 20-Core",
+        "memory": "64 GB DDR5-5200 Corsair Memory",
+        "storage": "2TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3080 Ti 12 GB"
+      }
+    },
+    {
+      "sku": "PC08",
+      "name": "Amd High End Gaming PC",
+      "price": 2500, 
+      "qty": 0,
+      "specs": {
+        "processor": "Amd Ryzen 9 4.7 GHz 12-Core",
+        "memory": "64 GB DDR5-5200 Corsair Memory",
+        "storage": "2TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 3080 Ti 12 GB"
+      }
+    },
+    {
+      "sku": "PC09",
+      "name": "Intel Very High End Gaming PC",
+      "price": 4000, 
+      "qty": 0,
+      "specs": {
+        "processor": "Intel Core I9 3.2 GHz 24-Core",
+        "memory": "64 GB DDR5-5200 Corsair Memory",
+        "storage": "2TB PCIe 4.0 NVME M-2-2280 SSD",
+        "videoCard": "GeForce RTX 4090 24 GB"
+      }
+    }
+  ]
+}
