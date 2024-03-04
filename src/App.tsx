@@ -1,10 +1,36 @@
+import { useState } from "react";
+import ProductShop from "./Components/ProductShop";
+import ProductInfo from "./Components/ProductInfo";
+import ShoppingCart from "./Components/ShoppingCart";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+
+export type displayViews = "shop" | "cart" | "product";
+
 const App = () => {
-  return (
-    <div>
-      <h1>Dev Environnement</h1>
-      
-    </div>
+  const [activeDisplay, setActiveDisplay] = useState<displayViews>("shop");
+
+  const pageContent =
+    activeDisplay === "shop" ? (
+      <ProductShop />
+    ) : activeDisplay === "cart" ? (
+      <ShoppingCart />
+    ) : (
+      <ProductInfo />
+    );
+
+  const content = (
+    <>
+      <Header
+        activeDisplay={activeDisplay}
+        setActiveDisplay={setActiveDisplay}
+      />
+      {pageContent}
+      <Footer />
+    </>
   );
+
+  return content;
 };
 
 export default App;
