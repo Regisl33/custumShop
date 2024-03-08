@@ -1,10 +1,12 @@
-import { useProductContext } from "../Context/ProductContext";
 import Product from "./Product";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const ProductShop = () => {
-  const productData = useProductContext();
+  const {handleProductDisplay} = useProductDisplayContext();
 
-  const content = productData.map((prod) => (
+  const pageContent = handleProductDisplay();
+
+  const content = pageContent.map((prod) => (
     <Product key={prod.sku} prod={prod} />
   ));
 
