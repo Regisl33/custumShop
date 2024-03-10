@@ -31,7 +31,7 @@ const reducer = (state: DisplayContextType, action: ReducerActions):DisplayConte
   switch(action.type) {
     case REDUCER_ACTIONS_TYPE.getMidPriceRange: return {...state, minPriceRange: parseInt(action.payload)}
     case REDUCER_ACTIONS_TYPE.getSearchResult: return {...state, searchResult: action.payload}
-    case REDUCER_ACTIONS_TYPE.getSelectedProcess: return {...state, selectedProcess: action.payload}
+    case REDUCER_ACTIONS_TYPE.getSelectedProcess: return {...state, selectedProcess: action.payload === state.selectedProcess ? "" : action.payload}
     default: throw new Error("action type undefined in Display Context") 
   }
 };
@@ -48,7 +48,7 @@ const useDisplayContext = (initDisplayContext: DisplayContextType) =>{
   
     let filteredProduct = productData.filter((prod) => prod.price > state.minPriceRange)
     state.selectedProcess === "" ? null : filteredProduct = filteredProduct.filter((prod) => prod.process === state.selectedProcess)
-    state.searchResult === "" ? null : filteredProduct = filteredProduct.filter((prod) => prod.name.toLowerCase().includes(state.searchResult.trim().toLowerCase()))
+    state.searchResult === "" ? null : filteredProduct = filteredProduct.filter((prod) => prod.name.toLowerCase().includes(state.searchResult.trim().toLowerCase())) 
 
     return filteredProduct
   }

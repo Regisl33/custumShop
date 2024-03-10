@@ -5,12 +5,14 @@ type PropsType = {
 };
 
 const Product = ({ prod }: PropsType) => {
+
   const content = (
     <figure>
       <h2>{prod.name}</h2>
       <p>{prod.price}</p>
     </figure>
   );
+  
   return content;
 };
 
