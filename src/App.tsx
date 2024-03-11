@@ -12,11 +12,11 @@ const App = () => {
 
   const pageContent =
     activeDisplay === "shop" ? (
-      <ProductShop />
+      <ProductShop setActiveDisplay={setActiveDisplay} />
     ) : activeDisplay === "cart" ? (
       <ShoppingCart />
     ) : (
-      <ProductInfo />
+      <ProductInfo setActiveDisplay={setActiveDisplay} />
     );
 
   const content = (

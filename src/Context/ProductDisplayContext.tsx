@@ -1,22 +1,31 @@
-import { useContext, useReducer, createContext, ReactElement, useMemo } from "react";
+import {
+  useContext,
+  useReducer,
+  createContext,
+  ReactElement,
+  useMemo,
+} from "react";
 import { ComputerType, useProductContext } from "./ProductContext";
 
 type DisplayContextType = {
   searchResult: string;
   selectedProcess: string;
   minPriceRange: number;
+  selectedProduct: string;
 };
 
 const initDisplayContext = {
   searchResult: "",
   selectedProcess: "",
   minPriceRange: 0,
+  selectedProduct: "",
 };
 
 const REDUCER_ACTIONS_TYPE = {
   getSearchResult: "getSearchResult",
   getSelectedProcess: "getSeletedProcess",
   getMidPriceRange: "getMidPriceRange",
+  getSelectedProduct: "getSelectedProduct",
 };
 
 export type ReducerActionsType = typeof REDUCER_ACTIONS_TYPE;
@@ -26,61 +35,93 @@ type ReducerActions = {
   payload: string;
 };
 
-const reducer = (state: DisplayContextType, action: ReducerActions):DisplayContextType => {
-
-  switch(action.type) {
-    case REDUCER_ACTIONS_TYPE.getMidPriceRange: return {...state, minPriceRange: parseInt(action.payload)}
-    case REDUCER_ACTIONS_TYPE.getSearchResult: return {...state, searchResult: action.payload}
-    case REDUCER_ACTIONS_TYPE.getSelectedProcess: return {...state, selectedProcess: action.payload === state.selectedProcess ? "" : action.payload}
-    default: throw new Error("action type undefined in Display Context") 
+const reducer = (
+  state: DisplayContextType,
+  action: ReducerActions
+): DisplayContextType => {
+  switch (action.type) {
+    case REDUCER_ACTIONS_TYPE.getMidPriceRange:
+      return { ...state, minPriceRange: parseInt(action.payload) };
+    case REDUCER_ACTIONS_TYPE.getSearchResult:
+      return { ...state, searchResult: action.payload };
+    case REDUCER_ACTIONS_TYPE.getSelectedProcess:
+      return {
+        ...state,
+        selectedProcess:
+          action.payload === state.selectedProcess ? "" : action.payload,
+      };
+    case REDUCER_ACTIONS_TYPE.getSelectedProduct:
+      return { ...state, selectedProduct: action.payload };
+    default:
+      throw new Error("action type undefined in Display Context");
   }
 };
 
-const useDisplayContext = (initDisplayContext: DisplayContextType) =>{
-  const[state, dispatch] = useReducer(reducer, initDisplayContext)
+const useDisplayContext = (initDisplayContext: DisplayContextType) => {
+  const [state, dispatch] = useReducer(reducer, initDisplayContext);
 
-  const  REDUCER_ACTIONS = useMemo(() => {
-    return REDUCER_ACTIONS_TYPE
-  }, [])
+  const REDUCER_ACTIONS = useMemo(() => {
+    return REDUCER_ACTIONS_TYPE;
+  }, []);
 
-  const handleProductDisplay = ():ComputerType[] =>{
+  const handleProductDisplay = (): ComputerType[] => {
     const productData = useProductContext();
-  
-    let filteredProduct = productData.filter((prod) => prod.price > state.minPriceRange)
-    state.selectedProcess === "" ? null : filteredProduct = filteredProduct.filter((prod) => prod.process === state.selectedProcess)
-    state.searchResult === "" ? null : filteredProduct = filteredProduct.filter((prod) => prod.name.toLowerCase().includes(state.searchResult.trim().toLowerCase())) 
 
-    return filteredProduct
-  }
+    let filteredProduct = productData.filter(
+      (prod) => prod.price > state.minPriceRange
+    );
+    state.selectedProcess === ""
+      ? null
+      : (filteredProduct = filteredProduct.filter(
+          (prod) => prod.process === state.selectedProcess
+        ));
+    state.searchResult === ""
+      ? null
+      : (filteredProduct = filteredProduct.filter((prod) =>
+          prod.name
+            .toLowerCase()
+            .includes(state.searchResult.trim().toLowerCase())
+        ));
 
-  return {state, dispatch, REDUCER_ACTIONS, handleProductDisplay}
-}
+    return filteredProduct;
+  };
 
-export type useDisplayContextType = ReturnType<typeof useDisplayContext>
+  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay };
+};
+
+export type useDisplayContextType = ReturnType<typeof useDisplayContext>;
 
 const initDisplayContextType: useDisplayContextType = {
   state: initDisplayContext,
-  dispatch: () =>{},
+  dispatch: () => {},
   REDUCER_ACTIONS: REDUCER_ACTIONS_TYPE,
-  handleProductDisplay: () =>[],
-}
+  handleProductDisplay: () => [],
+};
 
-const ProductDisplayContext = createContext<useDisplayContextType>(initDisplayContextType)
+const ProductDisplayContext = createContext<useDisplayContextType>(
+  initDisplayContextType
+);
 
-type ChildrenType = {children: ReactElement | ReactElement[]}
+type ChildrenType = { children: ReactElement | ReactElement[] };
 
-export const ProductDisplayContextProvider = ({children}:ChildrenType):ReactElement => {
+export const ProductDisplayContextProvider = ({
+  children,
+}: ChildrenType): ReactElement => {
   return (
-    <ProductDisplayContext.Provider value={useDisplayContext(initDisplayContext)}>
+    <ProductDisplayContext.Provider
+      value={useDisplayContext(initDisplayContext)}
+    >
       {children}
     </ProductDisplayContext.Provider>
-  )
-}
+  );
+};
 
 export const useProductDisplayContext = () => {
-  const {state, dispatch, REDUCER_ACTIONS, handleProductDisplay} = useContext(ProductDisplayContext);
+  const { state, dispatch, REDUCER_ACTIONS, handleProductDisplay } = useContext(
+    ProductDisplayContext
+  );
 
-  return {state, dispatch, REDUCER_ACTIONS, handleProductDisplay}
-}
+  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay };
+};
 
-export default ProductDisplayContext
+export default ProductDisplayContext;
