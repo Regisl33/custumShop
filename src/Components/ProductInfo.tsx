@@ -2,6 +2,7 @@ import { displayViews } from "../App";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 import { ComputerType, useProductContext } from "../Context/ProductContext";
 import ProductDetails from "./ProductDetails";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 type PropsType = {
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
@@ -23,6 +24,7 @@ const ProductInfo = ({ setActiveDisplay }: PropsType) => {
 
   const content = (
     <main>
+      <span aria-label="close-btn" onClick={() => setActiveDisplay("shop")}><IoMdCloseCircleOutline/></span>
       <ProductDetails currentProduct={currentProduct} />
     </main>
   );

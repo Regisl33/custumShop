@@ -58,14 +58,14 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
           type="radio" 
           id="amd" 
           name="process" 
-          checked={state.selectedProcess === "amd" ? true : false} 
+          defaultChecked={state.selectedProcess === "amd" ? true : false} 
           onClick={(e:any) => dispatch({type: REDUCER_ACTIONS.getSelectedProcess, payload: e.target.id})}/>
         <label htmlFor="intel">Intel</label>
         <input 
           type="radio" 
           id="intel" 
           name="process" 
-          checked={state.selectedProcess === "intel" ? true : false} 
+          defaultChecked={state.selectedProcess === "intel" ? true : false} 
           onClick={(e:any) => dispatch({type: REDUCER_ACTIONS.getSelectedProcess, payload: e.target.id})}/>
       </li>
       <li aria-label="Cart-Button">{pageContent}</li>

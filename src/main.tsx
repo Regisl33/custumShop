@@ -4,13 +4,16 @@ import App from './App.tsx'
 import "./assets/Style/index.scss"
 import { ProductContextProvider } from './Context/ProductContext.tsx'
 import {ProductDisplayContextProvider} from './Context/ProductDisplayContext.tsx'
+import { CartContextProvider } from './Context/CartContext.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ProductContextProvider>
       <ProductDisplayContextProvider>
-        <App />
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
       </ProductDisplayContextProvider>
     </ProductContextProvider>
   </React.StrictMode>,

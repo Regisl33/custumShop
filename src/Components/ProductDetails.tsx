@@ -1,10 +1,13 @@
 import { ComputerType } from "../Context/ProductContext";
+import { useCartContextState } from "../Context/CartContext";
 
 type PropsType = {
   currentProduct: ComputerType | undefined;
 };
 
 const ProductDetails = ({ currentProduct }: PropsType) => {
+  const {dispatch, REDUCER_ACTIONS} = useCartContextState()
+
   if (currentProduct) {
     const url = `./src/assets/Images/${currentProduct.sku}.jpg`;
 
@@ -21,7 +24,7 @@ const ProductDetails = ({ currentProduct }: PropsType) => {
             <li>Storage:{currentProduct.specs.storage}</li>
             <li>Graphic Card:{currentProduct.specs.videoCard}</li>
           </ul>
-          <button>Add To Cart</button>
+          <button onClick={() => dispatch({type: REDUCER_ACTIONS.add, payload: currentProduct})}>Add To Cart</button>
         </div>
       </figure>
     );
