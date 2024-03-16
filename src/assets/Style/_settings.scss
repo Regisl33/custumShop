@@ -44,3 +44,20 @@ body {
   position: absolute;
   left: -9999999px;
 }
+
+.btn {
+  background: $color4;
+  color: $color2;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.span {
+  background: none;
+  border: 1px solid $color2;
+  border-radius: 10px;
+  @include justify(center);
+  padding: 10px;
+}

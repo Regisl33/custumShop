@@ -1,0 +1,20 @@
+.shopping-cart {
+  @include justify(center);
+  flex-direction: column;
+  width: 100%;
+
+  .cartRow {
+    @include justify(space-around);
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid $color2;
+
+    img {
+      height: 150px;
+      width: 150px;
+      border-radius: 15px;
+    }
+  }
+}

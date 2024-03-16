@@ -33,11 +33,7 @@ header {
         cursor: pointer;
       }
       button {
-        background: none;
-        border: none;
-        font-size: 32px;
-        color: $color2;
-        cursor: pointer;
+        font-size: 2rem;
         @include justify(center);
       }
     }

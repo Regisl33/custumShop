@@ -26,7 +26,10 @@ const App = () => {
         setActiveDisplay={setActiveDisplay}
       />
       {pageContent}
-      <Footer />
+      <Footer
+        activeDisplay={activeDisplay}
+        setActiveDisplay={setActiveDisplay}
+      />
     </>
   );
 

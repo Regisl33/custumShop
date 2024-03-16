@@ -23,6 +23,7 @@ const Product = ({ prod, setActiveDisplay }: PropsType) => {
       <h2>{prod.name}</h2>
       <p>{prod.price}</p>
       <button
+        className="btn"
         id={prod.sku}
         onClick={(e: any) => displayProductInfos(e.target.id)}
       >
