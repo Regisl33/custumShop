@@ -1,4 +1,5 @@
 import { displayViews } from "../App";
+import Logo from "./Logo";
 import Navigation from "./Navigation";
 
 type PropsType = {
@@ -10,7 +11,7 @@ const Header = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   
   const content = (
     <header>
-      <h1>Computer Shop</h1>
+      <Logo />
       <Navigation activeDisplay={activeDisplay} setActiveDisplay={setActiveDisplay} />
     </header>
   );

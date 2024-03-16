@@ -1,5 +1,7 @@
 import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
+import { FiMinus } from "react-icons/fi"
+import { MdDeleteForever } from "react-icons/md";
 
 type PropsType = {
   prod: ComputerType;
@@ -23,7 +25,7 @@ const CartItem = ({ prod }: PropsType) => {
           dispatch({ type: REDUCER_ACTIONS.remove, payload: prod })
         }
       >
-        -
+        <FiMinus/>
       </span>
       <p>{totalPrice}$</p>
       <span
@@ -32,7 +34,7 @@ const CartItem = ({ prod }: PropsType) => {
           dispatch({ type: REDUCER_ACTIONS.delete, payload: prod })
         }
       >
-        X
+        <MdDeleteForever />
       </span>
     </div>
   );

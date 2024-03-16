@@ -2,8 +2,13 @@
   font-family: "font1";
   src: url(../Fonts/Roboto/Roboto-Regular.ttf);
 }
+@font-face {
+  font-family: "font2";
+  src: url(../Fonts/Poppins/Poppins-Regular.ttf);
+}
 
 $font1: "font1" sans-serif;
+$font2: "font2" sans-serif;
 
 $color1: rgb(9, 9, 9);
 $color2: rgb(243, 243, 243);
@@ -18,6 +23,7 @@ $color4: rgb(15, 15, 226);
 
 @mixin title($color) {
   text-transform: uppercase;
+  font-family: $font2;
   letter-spacing: 2px;
   font-size: 24px;
   color: $color;
