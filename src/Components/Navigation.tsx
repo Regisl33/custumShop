@@ -3,6 +3,7 @@ import { displayViews } from "../App";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
+import ThemeToggle from "./ThemeToggle";
 
 type PropsType = {
   activeDisplay: displayViews;
@@ -92,6 +93,9 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
           />
         </li>
         <li aria-label="Cart-Button">{pageContent}</li>
+        <li aria-label="Theme-Toggle">
+          <ThemeToggle />
+        </li>
       </ul>
     </nav>
   );
