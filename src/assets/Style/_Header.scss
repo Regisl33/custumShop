@@ -1,6 +1,6 @@
 header {
   .logo {
-    border: 1px solid $color2;
+    border: 1px solid $light-100;
     padding: 10px;
     margin: 15px auto;
     border-radius: 15px;
@@ -8,12 +8,12 @@ header {
     @include justify(space-evenly);
 
     h1 {
-      @include title($color2);
+      @include title($light-100);
     }
   }
 
   nav {
-    background: $color4;
+    background: $dark-blue;
     padding: 10px;
     margin: 0 auto;
     width: 80%;
@@ -23,15 +23,15 @@ header {
       @include justify(space-around);
 
       input[type="text"] {
-        border: 1px solid $color1;
+        border: 1px solid $dark-900;
         border-radius: 15px;
         font-size: 16px;
         padding: 10px;
-        color: $color2;
+        color: $light-100;
         background: none;
       }
       input[type="text"]::placeholder {
-        color: $color2;
+        color: $light-100;
       }
       span {
         margin-left: 5px;

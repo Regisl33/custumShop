@@ -10,10 +10,12 @@
 $font1: "font1" sans-serif;
 $font2: "font2" sans-serif;
 
-$color1: rgb(9, 9, 9);
-$color2: rgb(243, 243, 243);
-$color3: rgb(59, 59, 59);
-$color4: rgb(15, 15, 226);
+$dark-900: rgb(9, 9, 9);
+$dark-400: rgb(59, 59, 59);
+$light-300: rgb(255, 239, 213);
+$light-100: rgb(243, 243, 243);
+$dark-blue: rgb(15, 15, 226);
+$light-blue: rgb(15, 113, 240);
 
 @mixin justify($content) {
   display: flex;
@@ -40,8 +42,6 @@ $color4: rgb(15, 15, 226);
 
 body {
   text-align: center;
-  color: $color2;
-  background: $color3;
   font-family: $font1;
   font-size: 20px;
 }
@@ -55,19 +55,79 @@ body {
   left: -9999999px;
 }
 
-.btn {
-  background: $color4;
-  color: $color2;
+.btn-dark {
+  background: $dark-blue;
+  color: $light-100;
   padding: 15px 10px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 1px transparent solid;
+  transition: 0.2s ease;
+
+  &:hover {
+    border: 1px solid $light-blue;
+    transform: scale(105%);
+  }
+  &:active {
+    background: $light-blue;
+  }
+}
+.btn-light {
+  background: $light-blue;
+  color: $dark-900;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 1px transparent solid;
+  transition: 0.2s ease;
+
+  &:hover {
+    border: 1px solid $dark-blue;
+    transform: scale(105%);
+  }
+  &:active {
+    background: $dark-blue;
+  }
 }
 
-.span {
+.span-light {
   background: none;
-  border: 1px solid $color2;
+  border: 1px solid $dark-900;
   border-radius: 10px;
   @include justify(center);
   padding: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(105%);
+  }
+}
+.span-dark {
+  background: none;
+  border: 1px solid $light-100;
+  border-radius: 10px;
+  @include justify(center);
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(105%);
+  }
+}
+
+.light {
+  background: $light-300;
+  color: $dark-900;
+}
+.dark {
+  background: $dark-400;
+  color: $light-100;
 }

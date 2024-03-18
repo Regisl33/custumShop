@@ -1,4 +1,4 @@
-import { displayViews } from "../App";
+import { Themes, displayViews } from "../App";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 import { ComputerType, useProductContext } from "../Context/ProductContext";
 import ProductDetails from "./ProductDetails";
@@ -6,9 +6,10 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 
 type PropsType = {
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+  theme: Themes;
 };
 
-const ProductInfo = ({ setActiveDisplay }: PropsType) => {
+const ProductInfo = ({ setActiveDisplay, theme }: PropsType) => {
   const { state } = useProductDisplayContext();
   const productData = useProductContext();
 
@@ -24,8 +25,14 @@ const ProductInfo = ({ setActiveDisplay }: PropsType) => {
 
   const content = (
     <main>
-      <span aria-label="close-btn" onClick={() => setActiveDisplay("shop")}><IoMdCloseCircleOutline/></span>
-      <ProductDetails currentProduct={currentProduct} />
+      <span
+        className={theme === "dark" ? "span-dark" : "span-light"}
+        aria-label="close-btn"
+        onClick={() => setActiveDisplay("shop")}
+      >
+        <IoMdCloseCircleOutline />
+      </span>
+      <ProductDetails theme={theme} currentProduct={currentProduct} />
     </main>
   );
 

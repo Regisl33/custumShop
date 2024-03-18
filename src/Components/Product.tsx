@@ -1,13 +1,14 @@
 import { ComputerType } from "../Context/ProductContext";
-import { displayViews } from "../App";
+import { Themes, displayViews } from "../App";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 type PropsType = {
   prod: ComputerType;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+  theme: Themes;
 };
 
-const Product = ({ prod, setActiveDisplay }: PropsType) => {
+const Product = ({ prod, setActiveDisplay, theme }: PropsType) => {
   const { dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
 
   const url = `./src/assets/Images/${prod.sku}.jpg`;
@@ -23,7 +24,7 @@ const Product = ({ prod, setActiveDisplay }: PropsType) => {
       <h2>{prod.name}</h2>
       <p>{prod.price}</p>
       <button
-        className="btn"
+        className={theme === "dark" ? "btn-dark" : "btn-light"}
         id={prod.sku}
         onClick={(e: any) => displayProductInfos(e.target.id)}
       >

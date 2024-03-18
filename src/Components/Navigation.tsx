@@ -4,29 +4,43 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 import ThemeToggle from "./ThemeToggle";
+import { Themes } from "../App";
 
 type PropsType = {
   activeDisplay: displayViews;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+  theme: Themes;
+  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
 };
 
-const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
+const Navigation = ({
+  activeDisplay,
+  setActiveDisplay,
+  theme,
+  setTheme,
+}: PropsType) => {
   const { state, dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
 
   const pageContent =
     activeDisplay === "cart" ? (
-      <button className="btn" onClick={() => setActiveDisplay("shop")}>
+      <button
+        className={theme === "dark" ? "span-dark" : "span-light"}
+        onClick={() => setActiveDisplay("shop")}
+      >
         <FaHome />
       </button>
     ) : (
-      <button className="btn" onClick={() => setActiveDisplay("cart")}>
+      <button
+        className={theme === "dark" ? "span-dark" : "span-light"}
+        onClick={() => setActiveDisplay("cart")}
+      >
         <FaCartShopping />
       </button>
     );
 
   const content = (
     <nav aria-label="Main Shop Nav">
-      <ul>
+      <ul className="main-nav">
         <li aria-label="Search-Bar">
           <label className="offscreen" htmlFor="search">
             Search-Bar
@@ -92,11 +106,11 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
             }
           />
         </li>
-        <li aria-label="Cart-Button">{pageContent}</li>
-        <li aria-label="Theme-Toggle">
-          <ThemeToggle />
-        </li>
       </ul>
+      <div aria-label="Cart-Button">{pageContent}</div>
+      <div aria-label="Theme-Toggle">
+        <ThemeToggle theme={theme} setTheme={setTheme} />
+      </div>
     </nav>
   );
 

@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useCartContextState } from "../Context/CartContext";
 import CartItem from "./CartItem";
+import { Themes } from "../App";
 
-const ShoppingCart = () => {
+type PropsType = {
+  theme: Themes;
+};
+
+const ShoppingCart = ({ theme }: PropsType) => {
   const { state, dispatch, REDUCER_ACTIONS, CartTotalPrice } =
     useCartContextState();
 
@@ -20,10 +25,13 @@ const ShoppingCart = () => {
       ) : state.cart.length === 0 ? (
         <p>The cart is empty...</p>
       ) : (
-        state.cart.map((prod) => <CartItem prod={prod} />)
+        state.cart.map((prod) => <CartItem theme={theme} prod={prod} />)
       )}
       <p>Total: {CartTotalPrice}$</p>
-      <button className="btn" onClick={() => handleSubmit()}>
+      <button
+        className={theme === "dark" ? "btn-dark" : "btn-light"}
+        onClick={() => handleSubmit()}
+      >
         Submit Order
       </button>
     </main>

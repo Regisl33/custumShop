@@ -1,23 +1,30 @@
-import { displayViews } from "../App";
+import { displayViews, Themes } from "../App";
 import { useCartContextState } from "../Context/CartContext";
 
 type PropsType = {
   activeDisplay: displayViews;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+  theme: Themes;
 };
 
-const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
+const Footer = ({ activeDisplay, setActiveDisplay, theme }: PropsType) => {
   const { CartTotalPrice } = useCartContextState();
 
   const year = new Date().getFullYear();
 
   const pageContent =
     activeDisplay === "shop" ? (
-      <button className="btn" onClick={() => setActiveDisplay("cart")}>
+      <button
+        className={theme === "dark" ? "btn-light" : "btn-dark"}
+        onClick={() => setActiveDisplay("cart")}
+      >
         View Cart
       </button>
     ) : (
-      <button className="btn" onClick={() => setActiveDisplay("shop")}>
+      <button
+        className={theme === "dark" ? "btn-dark" : "btn-light"}
+        onClick={() => setActiveDisplay("shop")}
+      >
         View Shop
       </button>
     );

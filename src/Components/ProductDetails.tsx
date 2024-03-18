@@ -1,11 +1,13 @@
 import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
+import { Themes } from "../App";
 
 type PropsType = {
   currentProduct: ComputerType | undefined;
+  theme: Themes;
 };
 
-const ProductDetails = ({ currentProduct }: PropsType) => {
+const ProductDetails = ({ currentProduct, theme }: PropsType) => {
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
 
   if (currentProduct) {
@@ -25,7 +27,7 @@ const ProductDetails = ({ currentProduct }: PropsType) => {
             <li>Graphic Card:{currentProduct.specs.videoCard}</li>
           </ul>
           <button
-            className="btn"
+            className={theme === "dark" ? "btn-dark" : "btn-light"}
             onClick={() =>
               dispatch({ type: REDUCER_ACTIONS.add, payload: currentProduct })
             }
