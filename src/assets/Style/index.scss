@@ -1,5 +1,9 @@
 @import "./settings";
-@import "./Header";
-@import "./ProductShop";
-@import "./ProductDisplay";
-@import "./ShoppingCart";
+@import "./Layouts/Header";
+@import "./Layouts/ProductShop";
+@import "./Layouts/ProductDisplay";
+@import "./Layouts/ShoppingCart";
+@import "./Components/Hambuger-Menu";
+@import "./Components/Navigation";
+@import "./Components/Sidebar";
+

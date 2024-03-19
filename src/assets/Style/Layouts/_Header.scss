@@ -1,0 +1,22 @@
+header {
+  .logo-light {
+    border: 1px solid $dark-900;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 15px;
+    width: 30%;
+    @include justify(space-evenly);
+  }
+  .logo-dark {
+    border: 1px solid $light-100;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 15px;
+    width: 30%;
+    @include justify(space-evenly);
+  }
+
+  h1 {
+    @include title;
+  }
+}

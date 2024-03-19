@@ -9,6 +9,13 @@ export type displayViews = "shop" | "cart" | "product";
 
 export type Themes = "light" | "dark";
 
+export type PropsType = {
+  activeDisplay: displayViews;
+  setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+  theme: Themes;
+  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
+};
+
 const App = () => {
   const [activeDisplay, setActiveDisplay] = useState<displayViews>("shop");
   const [theme, setTheme] = useState<Themes>("dark");

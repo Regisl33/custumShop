@@ -23,13 +23,11 @@ $light-blue: rgb(15, 113, 240);
   align-items: center;
 }
 
-@mixin title($color) {
+@mixin title() {
   text-transform: uppercase;
   font-family: $font2;
   letter-spacing: 2px;
   font-size: 24px;
-  color: $color;
-  text-shadow: 1px 1px 8px $color;
 }
 
 * {
@@ -44,6 +42,7 @@ body {
   text-align: center;
   font-family: $font1;
   font-size: 20px;
+  transition: 0.2s ease;
 }
 
 .root {
@@ -55,9 +54,8 @@ body {
   left: -9999999px;
 }
 
-.btn-dark {
-  background: $dark-blue;
-  color: $light-100;
+.btn-dark,
+.btn-light{
   padding: 15px 10px;
   border-radius: 10px;
   border: none;
@@ -66,6 +64,11 @@ body {
   letter-spacing: 1px;
   border: 1px transparent solid;
   transition: 0.2s ease;
+}
+
+.btn-dark {
+  background: $dark-blue;
+  color: $light-100;
 
   &:hover {
     border: 1px solid $light-blue;
@@ -78,14 +81,6 @@ body {
 .btn-light {
   background: $light-blue;
   color: $dark-900;
-  padding: 15px 10px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  letter-spacing: 1px;
-  border: 1px transparent solid;
-  transition: 0.2s ease;
 
   &:hover {
     border: 1px solid $dark-blue;
@@ -96,31 +91,46 @@ body {
   }
 }
 
-.span-light {
+.span-dark,
+.span-light{
   background: none;
-  border: 1px solid $dark-900;
   border-radius: 10px;
   @include justify(center);
   padding: 10px;
   cursor: pointer;
   transition: 0.2s ease;
+  font-size: 1.3rem;
 
   &:hover {
     transform: scale(105%);
   }
 }
-.span-dark {
-  background: none;
-  border: 1px solid $light-100;
-  border-radius: 10px;
-  @include justify(center);
-  padding: 10px;
-  cursor: pointer;
-  transition: 0.2s ease;
 
-  &:hover {
-    transform: scale(105%);
-  }
+.span-light {
+  color: $dark-900;
+  border: 1px solid $dark-900;
+
+}
+.span-dark {
+  color: $light-100;
+  border: 1px solid $light-100;
+}
+
+.input-dark,
+.input-light{
+  border-radius: 15px;
+  font-size: 16px;
+  padding: 10px;
+  background: none;
+}
+
+.input-light {
+  border: 1px solid $dark-900;
+  color: $dark-900;
+}
+.input-dark {
+  border: 1px solid $light-100;
+  color: $light-100;
 }
 
 .light {
@@ -131,3 +141,4 @@ body {
   background: $dark-400;
   color: $light-100;
 }
+

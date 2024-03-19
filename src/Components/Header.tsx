@@ -1,15 +1,9 @@
-import { displayViews } from "../App";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Sidebar from "./Sidebar";
-import { Themes } from "../App";
+import { PropsType } from "../App";
 
-type PropsType = {
-  activeDisplay: displayViews;
-  setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-  theme: Themes;
-  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
-};
+
 
 const Header = ({
   activeDisplay,
@@ -17,9 +11,10 @@ const Header = ({
   theme,
   setTheme,
 }: PropsType) => {
+
   const content = (
     <header>
-      <Logo />
+      <Logo theme={theme} />
       <Navigation
         activeDisplay={activeDisplay}
         setActiveDisplay={setActiveDisplay}

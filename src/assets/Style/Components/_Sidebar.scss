@@ -1,0 +1,7 @@
+.sidebar{
+  // position: absolute;
+  // top: ;
+  // left: ;
+  @include justify(space-around);
+  flex-direction: column;
+}
