@@ -1,18 +1,33 @@
 import { ChangeEvent } from "react";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
+import { Themes } from "../App";
 
-const Sidebar = () => {
+type PropsType = {
+  theme: Themes;
+};
+
+const Sidebar = ({theme}:PropsType) => {
   const { state, dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
 
+  const classToggle = () =>{
+    const spans = document.querySelectorAll(".spans") as NodeListOf<HTMLSpanElement>;
+    const sidebar = document.querySelector(".sidebar") as HTMLDivElement;
+    spans.forEach((span) => span.classList.toggle("active"))
+    sidebar.classList.toggle("active")
+  }
+  
+  const hamburgerMenu = (
+    <div onClick={() => classToggle()} className="hamburger-menu">
+      <span className="spans"></span>
+      <span className="spans"></span>
+      <span className="spans"></span>
+    </div>
+  )
   const content = (
-    <div className="sidebar">
-      <div className="hamburger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav aria-label="Sidebar Shop Nav">
-        <ul className="sidebar-nav">
+    <div style={{background: theme === "dark" ? "#0f0fe2" : "#0072fe", color: theme === "dark" ? "#f3f3f3" : "#090909"}} className="sidebar">
+      {hamburgerMenu}
+      <nav className="sidebar-nav" aria-label="Sidebar Shop Nav">
+        <ul>
           <li aria-label="Search-Bar">
             <label className="offscreen" htmlFor="search">
               Search-Bar
@@ -21,6 +36,7 @@ const Sidebar = () => {
               type="text"
               id="search"
               placeholder="Search"
+              className={theme === "dark" ? "input-dark" : "input-light"}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 dispatch({
                   type: REDUCER_ACTIONS.getSearchResult,

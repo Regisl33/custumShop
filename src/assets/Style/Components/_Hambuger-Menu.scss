@@ -1,16 +1,12 @@
 .hamburger-menu{
-  // position: absolute;
-  // top: ;
-  // left: ;
+  position: absolute;
+  top: 0px;
+  right: -55px;
   @include justify(space-between);
   flex-direction: column;
   height: 30px;
   width: 40px;
   cursor: pointer;
-
-  .hamburger-menu.active{
-    transform: rotate(180deg);
-  }
   
   span{
     background: $light-100;
@@ -18,13 +14,16 @@
     height: 6px;
     border-radius: 15px;
   }
-  .active.hamburger-menu span:nth-child(1){
-    transform: rotate(45deg)translateY(20px);
-  }
-  .active.hamburger-menu span:nth-child(2){
-    opacity: 0;
-  }
-  .active.hamburger-menu span:nth-child(3){
-    transform: rotate(-45deg) translateY(-20px);
+  .active{
+
+    &:nth-child(1){
+      transform: rotate(45deg)translateY(17px);
+    }
+    &:nth-child(2){
+      opacity: 0;
+    }
+    &:nth-child(3){
+      transform: rotate(-45deg) translateY(-17px);
+    }
   }
 }

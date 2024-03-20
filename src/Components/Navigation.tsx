@@ -39,7 +39,7 @@ const Navigation = ({
     );
 
   const content = (
-    <nav style={{background: theme === "dark" ? "#0f0fe2" : "#0f71f0", color: theme === "dark" ? "#f3f3f3" : "#090909"}} className="navigation" aria-label="Main Shop Nav">
+    <nav style={{background: theme === "dark" ? "#0f0fe2" : "#0072fe", color: theme === "dark" ? "#f3f3f3" : "#090909"}} className="navigation" aria-label="Main Shop Nav">
       <ul className="main-nav">
         <li aria-label="Search-Bar">
           <label className="offscreen" htmlFor="search">

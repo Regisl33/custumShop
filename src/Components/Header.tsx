@@ -21,7 +21,7 @@ const Header = ({
         theme={theme}
         setTheme={setTheme}
       />
-      <Sidebar />
+      <Sidebar theme={theme} />
     </header>
   );
 

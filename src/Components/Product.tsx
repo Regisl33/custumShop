@@ -19,10 +19,10 @@ const Product = ({ prod, setActiveDisplay, theme }: PropsType) => {
   };
 
   const content = (
-    <figure className="product-card">
+    <figure className={theme=== "dark" ? "product-card-dark" : "product-card-light"}>
       <img src={url} alt={prod.name} />
       <h2>{prod.name}</h2>
-      <p>{prod.price}</p>
+      <p>{prod.price}$</p>
       <button
         className={theme === "dark" ? "btn-dark" : "btn-light"}
         id={prod.sku}

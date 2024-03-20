@@ -24,7 +24,7 @@ const ProductInfo = ({ setActiveDisplay, theme }: PropsType) => {
   });
 
   const content = (
-    <main>
+    <main className="product-infos">
       <span
         className={theme === "dark" ? "span-dark" : "span-light"}
         aria-label="close-btn"

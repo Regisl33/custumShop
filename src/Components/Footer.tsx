@@ -15,7 +15,7 @@ const Footer = ({ activeDisplay, setActiveDisplay, theme }: PropsType) => {
   const pageContent =
     activeDisplay === "shop" ? (
       <button
-        className={theme === "dark" ? "btn-light" : "btn-dark"}
+        className={theme === "dark" ? "btn-dark" : "btn-light"}
         onClick={() => setActiveDisplay("cart")}
       >
         View Cart
@@ -31,8 +31,9 @@ const Footer = ({ activeDisplay, setActiveDisplay, theme }: PropsType) => {
 
   const content = (
     <footer>
+      <hr className={theme === "dark" ? "hr-dark" : "hr-light"}/>
       {activeDisplay === "shop" ? <p>Total: {CartTotalPrice}$</p> : null}
-      <p>All rights reserved &copy; {year}</p>
+      <p className="copyright">All rights reserved &copy; {year}</p>
       {pageContent}
     </footer>
   );
