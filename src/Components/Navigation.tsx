@@ -85,7 +85,7 @@ const Navigation = ({
             type="radio"
             id="amd"
             name="process"
-            defaultChecked={state.selectedProcess === "amd" ? true : false}
+            checked={state.selectedProcess === "amd" ? true : false}
             onClick={(e: any) =>
               dispatch({
                 type: REDUCER_ACTIONS.getSelectedProcess,
@@ -98,7 +98,7 @@ const Navigation = ({
             type="radio"
             id="intel"
             name="process"
-            defaultChecked={state.selectedProcess === "intel" ? true : false}
+            checked={state.selectedProcess === "intel" ? true : false}
             onClick={(e: any) =>
               dispatch({
                 type: REDUCER_ACTIONS.getSelectedProcess,
@@ -106,6 +106,14 @@ const Navigation = ({
               })
             }
           />
+        </li>
+        <li>
+          <label htmlFor="sort-select">Sort By:</label>
+          <select  onChange={(e:any)=> dispatch({type: REDUCER_ACTIONS.getSelectedSort, payload: e.target.value}) } name="sort-select" id="sort-select">
+            <option value="A">Lowest Price</option>
+            <option value="B">Highest Price</option>
+            <option value="C">Alphabetical</option>
+          </select>
         </li>
       </ul>
       <div aria-label="Cart-Button">{pageContent}</div>

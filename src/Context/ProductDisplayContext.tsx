@@ -7,11 +7,14 @@ import {
 } from "react";
 import { ComputerType, useProductContext } from "./ProductContext";
 
+type sortType = "A" | "B" | "C"
+
 type DisplayContextType = {
   searchResult: string;
   selectedProcess: string;
   minPriceRange: number;
   selectedProduct: string;
+  selectedSort: sortType;
 };
 
 const initDisplayContext = {
@@ -19,6 +22,7 @@ const initDisplayContext = {
   selectedProcess: "",
   minPriceRange: 0,
   selectedProduct: "",
+  selectedSort: "A" as sortType,
 };
 
 const REDUCER_ACTIONS_TYPE = {
@@ -26,13 +30,14 @@ const REDUCER_ACTIONS_TYPE = {
   getSelectedProcess: "getSeletedProcess",
   getMidPriceRange: "getMidPriceRange",
   getSelectedProduct: "getSelectedProduct",
+  getSelectedSort: "getSelectedSort",
 };
 
 export type ReducerActionsType = typeof REDUCER_ACTIONS_TYPE;
 
 type ReducerActions = {
   type: string;
-  payload: string;
+  payload: string  | sortType;
 };
 
 const reducer = (
@@ -52,6 +57,8 @@ const reducer = (
       };
     case REDUCER_ACTIONS_TYPE.getSelectedProduct:
       return { ...state, selectedProduct: action.payload };
+    case REDUCER_ACTIONS_TYPE.getSelectedSort:
+      return { ...state, selectedSort: action.payload as sortType};
     default:
       throw new Error("action type undefined in Display Context");
   }
@@ -82,8 +89,17 @@ const useDisplayContext = (initDisplayContext: DisplayContextType) => {
             .toLowerCase()
             .includes(state.searchResult.trim().toLowerCase())
         ));
-
-    return filteredProduct;
+      
+      switch(state.selectedSort){
+        case "A": filteredProduct.sort((a ,b ) => a.price - b.price)
+          break;
+        case "B": filteredProduct.sort((a ,b ) => b.price - a.price)
+          break;
+        case "C": filteredProduct.sort((a ,b ) => a.name.localeCompare(b.name))
+          break;
+        default: throw new Error("Unexpected Sort Type in Display Context");
+      }
+    return filteredProduct
   };
 
   return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay };
