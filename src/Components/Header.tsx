@@ -3,17 +3,14 @@ import Navigation from "./Navigation";
 import Sidebar from "./Sidebar";
 import { PropsType } from "../App";
 
-
-
 const Header = ({
   activeDisplay,
   setActiveDisplay,
   theme,
   setTheme,
 }: PropsType) => {
-
   const content = (
-    <header>
+    <header id="header">
       <Logo theme={theme} />
       <Navigation
         activeDisplay={activeDisplay}

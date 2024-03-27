@@ -17,7 +17,7 @@ const CartItem = ({ prod, theme }: PropsType) => {
   const totalPrice = prod.price * prod.qty;
 
   const content = (
-    <div className="cartRow">
+    <div className={theme === "dark" ? "cartRow-dark" : "cartRow-light"}>
       <img src={url} alt={prod.name} />
       <h3>{prod.name}</h3>
       <span>{prod.qty}</span>

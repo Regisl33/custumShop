@@ -39,7 +39,14 @@ const Navigation = ({
     );
 
   const content = (
-    <nav style={{background: theme === "dark" ? "#0f0fe2" : "#0072fe", color: theme === "dark" ? "#f3f3f3" : "#090909"}} className="navigation" aria-label="Main Shop Nav">
+    <nav
+      style={{
+        background: theme === "dark" ? "#0f0fe2" : "#0072fe",
+        color: theme === "dark" ? "#f3f3f3" : "#090909",
+      }}
+      className="navigation"
+      aria-label="Main Shop Nav"
+    >
       <ul className="main-nav">
         <li aria-label="Search-Bar">
           <label className="offscreen" htmlFor="search">
@@ -98,7 +105,7 @@ const Navigation = ({
             type="radio"
             id="intel"
             name="process"
-            checked={state.selectedProcess === "intel" ? true : false}
+            defaultChecked={state.selectedProcess === "intel" ? true : false}
             onClick={(e: any) =>
               dispatch({
                 type: REDUCER_ACTIONS.getSelectedProcess,
@@ -109,7 +116,17 @@ const Navigation = ({
         </li>
         <li>
           <label htmlFor="sort-select">Sort By:</label>
-          <select  onChange={(e:any)=> dispatch({type: REDUCER_ACTIONS.getSelectedSort, payload: e.target.value}) } name="sort-select" id="sort-select">
+          <select
+            className={theme === "dark" ? "select-dark" : "select-light"}
+            onChange={(e: any) =>
+              dispatch({
+                type: REDUCER_ACTIONS.getSelectedSort,
+                payload: e.target.value,
+              })
+            }
+            name="sort-select"
+            id="sort-select"
+          >
             <option value="A">Lowest Price</option>
             <option value="B">Highest Price</option>
             <option value="C">Alphabetical</option>

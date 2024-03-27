@@ -1,12 +1,28 @@
-footer{
+footer {
   padding: 10px;
 
-  hr{
-    width: 90%;
-    margin:  10px auto;
+  .buttons {
+    @include justify(center);
   }
 
-  .copyright{
+  hr {
+    width: 90%;
     margin: 10px auto;
+  }
+
+  .copyright {
+    margin: 10px auto;
+  }
+  span {
+    padding: 15px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .backTop {
+    display: none;
+
+    @media screen and (max-width: 1200px) {
+      display: flex;
+    }
   }
 }

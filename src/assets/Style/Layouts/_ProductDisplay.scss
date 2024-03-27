@@ -1,7 +1,7 @@
-.product-infos{
+.product-infos {
   position: relative;
-  
-  span{
+
+  span {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -18,7 +18,7 @@
       grid-template-columns: 1fr;
       grid-template-rows: 50% 50%;
     }
-    
+
     img {
       border-radius: 15px;
       width: 100%;
@@ -29,22 +29,21 @@
       }
     }
     .specs {
-      @include justify(space-around);
+      @include justify(space-between);
       flex-direction: column;
       margin: 15px;
 
-      p{
+      p {
         margin: 10px;
       }
-      
-      ul{
+
+      ul {
         margin: 10px;
 
-        p{
+        p {
           margin: 10px;
         }
       }
     }
   }
 }
-
