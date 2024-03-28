@@ -4,6 +4,7 @@ import ProductInfo from "./Components/ProductInfo";
 import ShoppingCart from "./Components/ShoppingCart";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import { useProductDisplayContext } from "./Context/ProductDisplayContext";
 
 export type displayViews = "shop" | "cart" | "product";
 
@@ -12,13 +13,11 @@ export type Themes = "light" | "dark";
 export type PropsType = {
   activeDisplay: displayViews;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-  theme: Themes;
-  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
 };
 
 const App = () => {
   const [activeDisplay, setActiveDisplay] = useState<displayViews>("shop");
-  const [theme, setTheme] = useState<Themes>("dark");
+  const {theme} = useProductDisplayContext()
 
   useEffect(() => {
     const body = document.querySelector("body") as HTMLBodyElement;
@@ -40,8 +39,6 @@ const App = () => {
       <Header
         activeDisplay={activeDisplay}
         setActiveDisplay={setActiveDisplay}
-        theme={theme}
-        setTheme={setTheme}
       />
       {pageContent}
       <Footer

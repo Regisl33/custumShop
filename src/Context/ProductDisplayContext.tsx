@@ -4,8 +4,10 @@ import {
   createContext,
   ReactElement,
   useMemo,
+  useState
 } from "react";
 import { ComputerType, useProductContext } from "./ProductContext";
+import { Themes } from "../App";
 
 type sortType = "A" | "B" | "C"
 
@@ -66,6 +68,7 @@ const reducer = (
 
 const useDisplayContext = (initDisplayContext: DisplayContextType) => {
   const [state, dispatch] = useReducer(reducer, initDisplayContext);
+  const [theme, setTheme] = useState<Themes>("dark");
 
   const REDUCER_ACTIONS = useMemo(() => {
     return REDUCER_ACTIONS_TYPE;
@@ -102,7 +105,7 @@ const useDisplayContext = (initDisplayContext: DisplayContextType) => {
     return filteredProduct
   };
 
-  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay };
+  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay, theme, setTheme };
 };
 
 export type useDisplayContextType = ReturnType<typeof useDisplayContext>;
@@ -112,6 +115,8 @@ const initDisplayContextType: useDisplayContextType = {
   dispatch: () => {},
   REDUCER_ACTIONS: REDUCER_ACTIONS_TYPE,
   handleProductDisplay: () => [],
+  theme: "dark",
+  setTheme: () =>{}
 };
 
 const ProductDisplayContext = createContext<useDisplayContextType>(
@@ -133,11 +138,11 @@ export const ProductDisplayContextProvider = ({
 };
 
 export const useProductDisplayContext = () => {
-  const { state, dispatch, REDUCER_ACTIONS, handleProductDisplay } = useContext(
+  const { state, dispatch, REDUCER_ACTIONS, handleProductDisplay, theme, setTheme } = useContext(
     ProductDisplayContext
   );
 
-  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay };
+  return { state, dispatch, REDUCER_ACTIONS, handleProductDisplay, theme, setTheme };
 };
 
 export default ProductDisplayContext;

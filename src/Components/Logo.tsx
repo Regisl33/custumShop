@@ -1,11 +1,8 @@
 import { PiComputerTowerBold } from "react-icons/pi";
-import { Themes } from "../App";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
-type PropsType = {
-  theme: Themes
-}
-
-const Logo = ({theme}:PropsType) => {
+const Logo = () => {
+  const {theme} = useProductDisplayContext()
   const content = (
     <div className={theme === "dark" ? "logo-dark" : "logo-light"}>
       <h1>Computer Shop</h1>

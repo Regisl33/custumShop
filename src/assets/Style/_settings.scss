@@ -30,6 +30,10 @@ $light-blue: rgb(0, 114, 254);
   font-size: 24px;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
