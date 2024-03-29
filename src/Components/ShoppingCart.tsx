@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useCartContextState } from "../Context/CartContext";
 import CartItem from "./CartItem";
-import { Themes } from "../App";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
-type PropsType = {
-  theme: Themes;
-};
 
-const ShoppingCart = ({ theme }: PropsType) => {
+const ShoppingCart = () => {
   const { state, dispatch, REDUCER_ACTIONS, CartTotalPrice } =
     useCartContextState();
+  const {theme} = useProductDisplayContext()
 
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -25,7 +23,7 @@ const ShoppingCart = ({ theme }: PropsType) => {
       ) : state.cart.length === 0 ? (
         <p>The cart is empty...</p>
       ) : (
-        state.cart.map((prod) => <CartItem theme={theme} prod={prod} />)
+        state.cart.map((prod) => <CartItem  prod={prod} />)
       )}
       <p>Total: {CartTotalPrice}$</p>
       <button

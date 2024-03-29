@@ -1,14 +1,14 @@
 import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
-import { Themes } from "../App";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 type PropsType = {
   currentProduct: ComputerType | undefined;
-  theme: Themes;
 };
 
-const ProductDetails = ({ currentProduct, theme }: PropsType) => {
+const ProductDetails = ({ currentProduct }: PropsType) => {
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
+  const {theme} = useProductDisplayContext()
 
   if (currentProduct) {
     const url = `./src/assets/Images/${currentProduct.sku}.jpg`;
@@ -20,7 +20,13 @@ const ProductDetails = ({ currentProduct, theme }: PropsType) => {
           <h2>{currentProduct.name}</h2>
           <p>{currentProduct.price}$</p>
           <h4>Specifications</h4>
-          <ul>
+          <div className="tinySpecs">
+            <p>Processor:{currentProduct.specs.processor}</p>
+            <p>Memory:{currentProduct.specs.memory}</p>
+            <p>Storage:{currentProduct.specs.storage}</p>
+            <p>Graphic Card:{currentProduct.specs.videoCard}</p>
+          </div>
+          <ul className="wideSpecs">
             <li>Processor:{currentProduct.specs.processor}</li>
             <li>Memory:{currentProduct.specs.memory}</li>
             <li>Storage:{currentProduct.specs.storage}</li>

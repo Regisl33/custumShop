@@ -2,15 +2,15 @@ import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
 import { FiMinus } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
-import { Themes } from "../App";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 type PropsType = {
   prod: ComputerType;
-  theme: Themes;
 };
 
-const CartItem = ({ prod, theme }: PropsType) => {
+const CartItem = ({ prod}: PropsType) => {
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
+  const {theme} = useProductDisplayContext()
 
   const url = `./src/assets/Images/${prod.sku}.jpg`;
 

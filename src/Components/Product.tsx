@@ -1,15 +1,14 @@
 import { ComputerType } from "../Context/ProductContext";
-import { Themes, displayViews } from "../App";
+import { displayViews } from "../App";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 type PropsType = {
   prod: ComputerType;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-  theme: Themes;
 };
 
-const Product = ({ prod, setActiveDisplay, theme }: PropsType) => {
-  const { dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
+const Product = ({ prod, setActiveDisplay }: PropsType) => {
+  const { dispatch, REDUCER_ACTIONS, theme } = useProductDisplayContext();
 
   const url = `./src/assets/Images/${prod.sku}.jpg`;
 

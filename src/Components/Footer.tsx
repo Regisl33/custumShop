@@ -1,15 +1,16 @@
-import { displayViews, Themes } from "../App";
+import { displayViews} from "../App";
 import { useCartContextState } from "../Context/CartContext";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 type PropsType = {
   activeDisplay: displayViews;
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-  theme: Themes;
 };
 
-const Footer = ({ activeDisplay, setActiveDisplay, theme }: PropsType) => {
+const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   const { CartTotalPrice } = useCartContextState();
+  const {theme} = useProductDisplayContext()
 
   const year = new Date().getFullYear();
 

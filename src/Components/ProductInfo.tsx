@@ -1,4 +1,4 @@
-import { Themes, displayViews } from "../App";
+import { displayViews } from "../App";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 import { ComputerType, useProductContext } from "../Context/ProductContext";
 import ProductDetails from "./ProductDetails";
@@ -6,11 +6,10 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 
 type PropsType = {
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-  theme: Themes;
 };
 
-const ProductInfo = ({ setActiveDisplay, theme }: PropsType) => {
-  const { state } = useProductDisplayContext();
+const ProductInfo = ({ setActiveDisplay }: PropsType) => {
+  const { state, theme } = useProductDisplayContext();
   const productData = useProductContext();
 
   let currentProduct: ComputerType | undefined;
@@ -32,7 +31,7 @@ const ProductInfo = ({ setActiveDisplay, theme }: PropsType) => {
       >
         <IoMdCloseCircleOutline />
       </span>
-      <ProductDetails theme={theme} currentProduct={currentProduct} />
+      <ProductDetails currentProduct={currentProduct} />
     </main>
   );
 

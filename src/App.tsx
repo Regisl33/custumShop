@@ -27,11 +27,11 @@ const App = () => {
 
   const pageContent =
     activeDisplay === "shop" ? (
-      <ProductShop theme={theme} setActiveDisplay={setActiveDisplay} />
+      <ProductShop setActiveDisplay={setActiveDisplay} />
     ) : activeDisplay === "cart" ? (
-      <ShoppingCart theme={theme} />
+      <ShoppingCart />
     ) : (
-      <ProductInfo theme={theme} setActiveDisplay={setActiveDisplay} />
+      <ProductInfo setActiveDisplay={setActiveDisplay} />
     );
 
   const content = (
@@ -44,7 +44,6 @@ const App = () => {
       <Footer
         activeDisplay={activeDisplay}
         setActiveDisplay={setActiveDisplay}
-        theme={theme}
       />
     </>
   );
