@@ -1,0 +1,23 @@
+.span-dark,
+.span-light {
+  background: none;
+  border-radius: 10px;
+  @include justify(center);
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 1.3rem;
+
+  &:hover {
+    transform: scale(105%);
+  }
+}
+
+.span-light {
+  color: $dark-900;
+  border: 1px solid $dark-900;
+}
+.span-dark {
+  color: $light-100;
+  border: 1px solid $light-100;
+}

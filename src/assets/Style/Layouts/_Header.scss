@@ -28,7 +28,7 @@ header {
   .active{
     transform: translateX(300px);
   }
-
+  
   h1 {
     @include title;
   }

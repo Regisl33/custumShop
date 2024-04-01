@@ -5,6 +5,7 @@
   width: 300px;
   border-radius:  0px 15px 15px 0px;
   display: none;
+  transition: 0.2s ease;
 
   @media screen and (max-width: 1000px) {
     display: block

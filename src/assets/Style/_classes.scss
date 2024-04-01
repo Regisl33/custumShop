@@ -1,0 +1,66 @@
+.root {
+  width: 100%;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999999px;
+}
+
+.hr-light {
+  border: solid 1px $dark-900;
+}
+.hr-dark {
+  border: solid 1px $light-100;
+}
+
+.light {
+  background: $light-300;
+  color: $dark-900;
+}
+.dark {
+  background: $dark-400;
+  color: $light-100;
+}
+
+.cartRow-dark,
+.cartRow-light {
+  @include justify(space-around);
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.cartRow-dark {
+  border: 1px solid $light-100;
+}
+.cartRow-light {
+  border: 1px solid $dark-900;
+}
+
+.link-dark,
+.link-dark:visited {
+  color: $light-100;
+}
+.link-light,
+.link-light:visited {
+  color: $dark-900;
+}
+
+.select-light,
+.select-dark {
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 15px;
+  background: none;
+  font-size: 14px;
+}
+.select-dark {
+  color: $light-100;
+  border: solid $light-100 1px;
+}
+.select-light {
+  color: $dark-900;
+  border: solid $dark-900 1px;
+}

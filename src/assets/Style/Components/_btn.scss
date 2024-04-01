@@ -1,0 +1,36 @@
+.btn-dark,
+.btn-light {
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 1px transparent solid;
+  transition: 0.2s ease;
+}
+
+.btn-dark {
+  background: $dark-blue;
+  color: $light-100;
+
+  &:hover {
+    border: 1px solid $light-blue;
+    transform: scale(105%);
+  }
+  &:active {
+    background: $light-blue;
+  }
+}
+.btn-light {
+  background: $light-blue;
+  color: $dark-900;
+
+  &:hover {
+    border: 1px solid $dark-blue;
+    transform: scale(105%);
+  }
+  &:active {
+    background: $dark-blue;
+  }
+}

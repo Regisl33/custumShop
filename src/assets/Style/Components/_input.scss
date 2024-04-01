@@ -1,0 +1,25 @@
+.input-dark,
+.input-light {
+  border-radius: 15px;
+  font-size: 16px;
+  padding: 10px;
+  background: none;
+  letter-spacing: 1px;
+}
+
+.input-light {
+  border: 1px solid $dark-900;
+  color: $dark-900;
+
+  &::placeholder {
+    color: $dark-900;
+  }
+}
+.input-dark {
+  border: 1px solid $light-100;
+  color: $light-100;
+
+  &::placeholder {
+    color: $light-100;
+  }
+}
