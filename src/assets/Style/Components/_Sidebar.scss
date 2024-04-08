@@ -1,19 +1,18 @@
-.sidebar{
+.sidebar {
   position: absolute;
   top: 80px;
   left: -300px;
   width: 300px;
-  border-radius:  0px 15px 15px 0px;
+  border-radius: 0px 15px 15px 0px;
   display: none;
   transition: 0.2s ease;
 
-  @media screen and (max-width: 1000px) {
-    display: block
+  @media screen and (max-width: 1200px) {
+    display: block;
   }
-  
-  .sidebar-nav{
 
-    ul{
+  .sidebar-nav {
+    ul {
       height: 350px;
       @include justify(space-evenly);
       flex-direction: column;

@@ -1,4 +1,4 @@
-import { displayViews} from "../App";
+import { displayViews } from "../App";
 import { useCartContextState } from "../Context/CartContext";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
@@ -10,9 +10,22 @@ type PropsType = {
 
 const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   const { CartTotalPrice } = useCartContextState();
-  const {theme} = useProductDisplayContext()
+  const { theme } = useProductDisplayContext();
 
   const year = new Date().getFullYear();
+
+  const backToTopBtn = (
+    <div className="backTop">
+      <span className={theme === "dark" ? "span-dark" : "span-light"}>
+        <a
+          href="#header"
+          className={theme === "dark" ? "link-dark" : "link-light"}
+        >
+          <FaArrowAltCircleUp />
+        </a>
+      </span>
+    </div>
+  );
 
   const pageContent =
     activeDisplay === "cart" ? (
@@ -38,16 +51,7 @@ const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
       <p className="copyright">All rights reserved &copy; {year}</p>
       <div className="buttons">
         {pageContent}
-        <div className="backTop">
-          <span className={theme === "dark" ? "span-dark" : "span-light"}>
-            <a
-              href="#header"
-              className={theme === "dark" ? "link-dark" : "link-light"}
-            >
-              <FaArrowAltCircleUp />
-            </a>
-          </span>
-        </div>
+        {activeDisplay === "shop" ? backToTopBtn : null}
       </div>
     </footer>
   );

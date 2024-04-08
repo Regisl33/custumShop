@@ -30,11 +30,7 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   //Main Nav HTML Return
   const content = (
     <nav
-      style={{
-        background: theme === "dark" ? "#0f0fe2" : "#0072fe",
-        color: theme === "dark" ? "#f3f3f3" : "#090909",
-      }}
-      className="navigation"
+      className={theme === "dark" ? "navigation-dark" : "navigation-light"}
       aria-label="Main Shop Nav"
     >
       <ul className="main-nav">
@@ -45,7 +41,10 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
       </ul>
       <div aria-label="Cart-Button">{pageContent}</div>
       <div aria-label="Theme-Toggle">
-        <ThemeToggle theme={theme} setTheme={setTheme} />
+        <ThemeToggle
+          theme={theme}
+          setTheme={setTheme}
+        />
       </div>
     </nav>
   );

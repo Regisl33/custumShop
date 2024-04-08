@@ -1,6 +1,7 @@
 import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 type PropsType = {
   currentProduct: ComputerType | undefined;
@@ -8,19 +9,37 @@ type PropsType = {
 
 const ProductDetails = ({ currentProduct }: PropsType) => {
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
-  const {theme} = useProductDisplayContext()
+  const { theme } = useProductDisplayContext();
+
+  const classToggler = () => {
+    const specs = document.getElementById("specs");
+    specs?.classList.toggle("active");
+  };
 
   if (currentProduct) {
     const url = `./src/assets/Images/${currentProduct.sku}.jpg`;
 
     const content = (
       <figure className="product-details">
-        <img src={url} alt={currentProduct.name} />
+        <img
+          src={url}
+          alt={currentProduct.name}
+        />
         <div className="specs">
           <h2>{currentProduct.name}</h2>
           <p>{currentProduct.price}$</p>
-          <h4>Specifications</h4>
-          <div className="tinySpecs">
+          <h4 onClick={() => classToggler()}>Specifications</h4>
+          <div
+            className={theme === "dark" ? "tinySpecs-dark" : "tinySpecs-light"}
+            id="specs"
+          >
+            <span
+              className={theme === "dark" ? "span-dark" : "span-light"}
+              aria-label="close-btn"
+              onClick={() => classToggler()}
+            >
+              <IoMdCloseCircleOutline />
+            </span>
             <p>Processor:{currentProduct.specs.processor}</p>
             <p>Memory:{currentProduct.specs.memory}</p>
             <p>Storage:{currentProduct.specs.storage}</p>

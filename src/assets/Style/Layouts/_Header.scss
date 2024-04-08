@@ -1,34 +1,10 @@
 header {
   position: relative;
 
-  .logo-dark,
-  .logo-light{
-    padding: 10px;
-    margin: 15px auto;
-    border-radius: 15px;
-    width: 30%;
-    @include justify(space-evenly);
-
-    @media screen and (max-width: 1000px) {
-      width: 50%;
-    }
-    @media screen and (max-width: 600px) {
-      width: 100%;
-    }
-  }
-  
-  .logo-light {
-    border: 1px solid $dark-900;
-  }
-
-  .logo-dark {
-    border: 1px solid $light-100;
-  }
-
-  .active{
+  .active {
     transform: translateX(300px);
   }
-  
+
   h1 {
     @include title;
   }
