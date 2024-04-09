@@ -1,0 +1,26 @@
+.buttons {
+  @include justify(center);
+
+  .backTop {
+    display: none;
+
+    @media screen and (max-width: 1200px) {
+      display: flex;
+    }
+
+    span {
+      padding: 15px;
+      cursor: pointer;
+      margin: 10px;
+
+      .link-dark,
+      .link-dark:visited {
+        color: $light-100;
+      }
+      .link-light,
+      .link-light:visited {
+        color: $dark-900;
+      }
+    }
+  }
+}

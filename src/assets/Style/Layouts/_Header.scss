@@ -1,11 +1,8 @@
+//Sidebar Positionning the rest of the code is in the Logo file
 header {
   position: relative;
 
   .active {
-    transform: translateX(300px);
-  }
-
-  h1 {
-    @include title;
+    transform: translateX(310px);
   }
 }

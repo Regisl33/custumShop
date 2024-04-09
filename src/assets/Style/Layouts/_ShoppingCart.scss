@@ -2,48 +2,13 @@
   @include justify(center);
   flex-direction: column;
   width: 100%;
-
-  .cartRow-dark,
-  .cartRow-light {
-    @include justify(space-between);
-    width: 90%;
-    margin: 10px auto;
-    padding: 15px 50px;
-    border-radius: 15px;
-
-    .cart-grid {
-      @include justify(space-between);
-
-      @media screen and (max-width: 850px) {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
-      }
-
-      * {
-        margin: 10px;
-
-        @media screen and (max-width: 850px) {
-          margin: 5px;
-        }
-      }
-    }
-  }
-
-  .cartRow-dark {
-    border: 1px solid $light-100;
-    box-shadow: 1px 2px 5px 2px rgba(243, 243, 243, 0.4);
-  }
-  .cartRow-light {
-    border: 1px solid $dark-900;
-    box-shadow: 1px 2px 5px 2px rgba(9, 9, 9, 0.4);
-  }
-
+  //IMG container
   img {
     height: 150px;
     width: 150px;
     border-radius: 15px;
   }
+  //Total Price Margin
   p {
     margin: 10px;
   }

@@ -9,15 +9,12 @@ const Sidebar = () => {
   const { theme } = useProductDisplayContext();
   //Sidebar HTML Return
   const content = (
-    <div
-      style={{
-        background: theme === "dark" ? "#0f0fe2" : "#0072fe",
-        color: theme === "dark" ? "#f3f3f3" : "#090909",
-      }}
-      className="sidebar"
-    >
+    <div className={theme === "dark" ? "sidebar-dark" : "sidebar-light"}>
       <HamburgerMenu />
-      <nav className="sidebar-nav" aria-label="Sidebar Shop Nav">
+      <nav
+        className="sidebar-nav"
+        aria-label="Sidebar Shop Nav"
+      >
         <ul>
           <SearchBar />
           <PriceRange />

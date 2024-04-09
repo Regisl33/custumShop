@@ -1,3 +1,4 @@
+//Font imports
 @font-face {
   font-family: "font1";
   src: url(../Fonts/Roboto/Roboto-Regular.ttf);
@@ -6,31 +7,30 @@
   font-family: "font2";
   src: url(../Fonts/Poppins/Poppins-Regular.ttf);
 }
-
-$font1: "font1" sans-serif;
-$font2: "font2" sans-serif;
-
+//Fonts
+$font1: "font1", sans-serif;
+$font2: "font2", sans-serif;
+//Colors
 $dark-900: rgb(9, 9, 9);
 $dark-400: rgb(59, 59, 59);
 $light-300: rgb(255, 239, 213);
 $light-100: rgb(243, 243, 243);
 $dark-blue: rgb(15, 15, 226);
 $light-blue: rgb(0, 114, 254);
-
+//Mixins
 @mixin justify($content) {
   display: flex;
   justify-content: $content;
   align-items: center;
 }
-
 @mixin title() {
   text-transform: uppercase;
   font-family: $font2;
   letter-spacing: 2px;
   font-size: 24px;
 }
-
-html{
+//General Settings
+html {
   scroll-behavior: smooth;
 }
 
@@ -49,4 +49,20 @@ body {
   transition: 0.2s ease;
 }
 
-
+.root {
+  width: 100%;
+}
+//Background Themes
+.light {
+  background: $light-300;
+  color: $dark-900;
+}
+.dark {
+  background: $dark-400;
+  color: $light-100;
+}
+//Use for labels to be offscreen
+.offscreen {
+  position: absolute;
+  left: -9999999px;
+}

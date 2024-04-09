@@ -24,6 +24,7 @@ const ProductDetails = ({ currentProduct }: PropsType) => {
         <img
           src={url}
           alt={currentProduct.name}
+          className={theme === "dark" ? "img-dark" : "img-light"}
         />
         <div className="specs">
           <h2>{currentProduct.name}</h2>

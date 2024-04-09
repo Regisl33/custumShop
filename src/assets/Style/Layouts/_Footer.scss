@@ -1,28 +1,21 @@
 footer {
   padding: 10px;
 
-  .buttons {
-    @include justify(center);
-  }
-
+  //Footer-Hr
   hr {
     width: 90%;
     margin: 10px auto;
   }
-
+  .hr-light {
+    border: solid 1px $dark-900;
+    box-shadow: 1px 2px 5px 2px rgba(9, 9, 9, 0.4);
+  }
+  .hr-dark {
+    border: solid 1px $light-100;
+    box-shadow: 1px 2px 5px 2px rgba(243, 243, 243, 0.4);
+  }
+  //Copyright Paragraph Margin
   .copyright {
     margin: 10px auto;
-  }
-  span {
-    padding: 15px;
-    cursor: pointer;
-    margin: 10px;
-  }
-  .backTop {
-    display: none;
-
-    @media screen and (max-width: 1200px) {
-      display: flex;
-    }
   }
 }

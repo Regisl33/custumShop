@@ -1,0 +1,16 @@
+.select-light,
+.select-dark {
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 15px;
+  background: none;
+  font-size: 14px;
+}
+.select-dark {
+  color: $light-100;
+  border: solid $light-100 1px;
+}
+.select-light {
+  color: $dark-900;
+  border: solid $dark-900 1px;
+}
