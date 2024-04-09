@@ -12,12 +12,13 @@
     transform: scale(105%);
   }
 }
-
-.span-light {
-  color: $dark-900;
-  border: 1px solid $dark-900;
-}
+//Dark Mode
 .span-dark {
   color: $light-100;
   border: 1px solid $light-100;
+}
+//Light Mode
+.span-light {
+  color: $dark-900;
+  border: 1px solid $dark-900;
 }

@@ -2,7 +2,6 @@
 .btn-light {
   padding: 15px 10px;
   border-radius: 10px;
-  border: none;
   cursor: pointer;
   font-size: 16px;
   letter-spacing: 1px;
@@ -10,7 +9,7 @@
   transition: 0.2s ease;
   font-family: inherit;
 }
-
+//Dark Mode
 .btn-dark {
   background: $dark-blue;
   color: $light-100;
@@ -23,6 +22,7 @@
     background: $light-blue;
   }
 }
+//Light Mode
 .btn-light {
   background: $light-blue;
   color: $dark-900;

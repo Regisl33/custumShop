@@ -7,13 +7,14 @@
   height: 30px;
   width: 40px;
   cursor: pointer;
-
+  //Hamburger Menu
   span {
     background: $light-100;
     width: 100%;
     height: 6px;
     border-radius: 15px;
   }
+  //Close and Open Animation
   .active {
     &:nth-child(1) {
       transform: rotate(45deg) translateY(17px);

@@ -6,7 +6,10 @@ const PriceRange = () => {
   //Input Range for Price HTML Return
   const content = (
     <li aria-label="Price-Range-Selector">
-      <label className="offscreen" htmlFor="priceRange">
+      <label
+        className="offscreen"
+        htmlFor="priceRange"
+      >
         Price Range Input
       </label>
       <input
@@ -23,7 +26,7 @@ const PriceRange = () => {
         }
         value={state.minPriceRange}
       />
-      <span>{state.minPriceRange}</span>
+      <span className="radio-span">{state.minPriceRange}</span>
     </li>
   );
   return content;

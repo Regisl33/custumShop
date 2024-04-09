@@ -5,11 +5,17 @@
   border-radius: 15px;
   background: none;
   font-size: 14px;
+
+  option {
+    color: $dark-900;
+  }
 }
+//Dark Mode
 .select-dark {
   color: $light-100;
   border: solid $light-100 1px;
 }
+//Light Mode
 .select-light {
   color: $dark-900;
   border: solid $dark-900 1px;

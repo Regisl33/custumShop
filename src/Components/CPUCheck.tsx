@@ -10,6 +10,7 @@ const CPUCheck = () => {
         type="radio"
         id="amd"
         name="process"
+        className="radio"
         defaultChecked={state.selectedProcess === "amd" ? true : false}
         onClick={(e: any) =>
           dispatch({
@@ -23,6 +24,7 @@ const CPUCheck = () => {
         type="radio"
         id="intel"
         name="process"
+        className="radio"
         defaultChecked={state.selectedProcess === "intel" ? true : false}
         onClick={(e: any) =>
           dispatch({

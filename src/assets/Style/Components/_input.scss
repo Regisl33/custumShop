@@ -6,20 +6,21 @@
   background: none;
   letter-spacing: 1px;
 }
-
-.input-light {
-  border: 1px solid $dark-900;
-  color: $dark-900;
-
-  &::placeholder {
-    color: $dark-900;
-  }
-}
+//Dark Mode
 .input-dark {
   border: 1px solid $light-100;
   color: $light-100;
 
   &::placeholder {
     color: $light-100;
+  }
+}
+//Light Mode
+.input-light {
+  border: 1px solid $dark-900;
+  color: $dark-900;
+
+  &::placeholder {
+    color: $dark-900;
   }
 }

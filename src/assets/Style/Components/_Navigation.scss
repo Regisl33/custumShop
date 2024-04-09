@@ -14,38 +14,27 @@
   }
 
   ul {
+    //Nav display
     @include justify(space-around);
 
     @media screen and (max-width: 1200px) {
       display: none;
     }
-
-    span {
-      margin-left: 5px;
-    }
-    input[type="radio"] {
-      margin: 10px;
-      cursor: pointer;
-    }
-    button {
-      font-size: 2rem;
-      @include justify(center);
-    }
   }
+  //Cart and Theme button
   .span-dark,
   .span-light {
     width: 50px;
     margin: 0 auto;
   }
-  option {
-    color: $dark-900;
-  }
 }
+//Dark Mode
 .navigation-dark {
   background: $dark-blue;
   border: 1px solid $light-100;
   box-shadow: 1px 2px 5px 2px rgba(243, 243, 243, 0.4);
 }
+//Light Mode
 .navigation-light {
   background: $light-blue;
   border: 1px solid $dark-900;

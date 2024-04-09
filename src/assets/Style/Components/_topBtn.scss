@@ -1,4 +1,5 @@
 .buttons {
+  //Place the button beside the view cart button
   @include justify(center);
 
   .backTop {
@@ -13,10 +14,12 @@
       cursor: pointer;
       margin: 10px;
 
+      //Dark Mode
       .link-dark,
       .link-dark:visited {
         color: $light-100;
       }
+      //Light Mode
       .link-light,
       .link-light:visited {
         color: $dark-900;

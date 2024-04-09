@@ -10,29 +10,31 @@
   @media screen and (max-width: 450px) {
     width: 100%;
   }
+  //Title
   h1 {
     @include title;
   }
+  //Computer Logo
   span {
     @include justify(center);
     font-size: 2rem;
   }
 }
-
-.logo-light {
-  border: 1px solid $dark-900;
-  box-shadow: 1px 2px 5px 2px rgba(9, 9, 9, 0.4);
-
-  h1 {
-    text-shadow: 1px 2px 3px rgba(9, 9, 9, 0.4);
-  }
-}
-
+//Dark Mode
 .logo-dark {
   border: 1px solid $light-100;
   box-shadow: 1px 2px 5px 2px rgba(243, 243, 243, 0.4);
 
   h1 {
     text-shadow: 1px 2px 3px $light-100;
+  }
+}
+//Light Mode
+.logo-light {
+  border: 1px solid $dark-900;
+  box-shadow: 1px 2px 5px 2px rgba(9, 9, 9, 0.4);
+
+  h1 {
+    text-shadow: 1px 2px 3px rgba(9, 9, 9, 0.4);
   }
 }
