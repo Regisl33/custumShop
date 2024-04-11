@@ -1,17 +1,18 @@
-import { displayViews } from "../App";
-import { useProductDisplayContext } from "../Context/ProductDisplayContext";
-import { ComputerType, useProductContext } from "../Context/ProductContext";
 import ProductDetails from "./ProductDetails";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-
+import { displayViews } from "../App";
+import { ComputerType, useProductContext } from "../Context/ProductContext";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
+//Props Type
 type PropsType = {
   setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
 };
 
 const ProductInfo = ({ setActiveDisplay }: PropsType) => {
+  //Getting Context
   const { state, theme } = useProductDisplayContext();
   const productData = useProductContext();
-
+  //Define currentProduct
   let currentProduct: ComputerType | undefined;
 
   productData.map((prod) => {
@@ -21,7 +22,7 @@ const ProductInfo = ({ setActiveDisplay }: PropsType) => {
       null;
     }
   });
-
+  //Main HTML Return
   const content = (
     <main className="product-infos">
       <span

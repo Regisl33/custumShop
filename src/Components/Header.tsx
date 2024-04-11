@@ -1,7 +1,12 @@
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Sidebar from "./Sidebar";
-import { PropsType } from "../App";
+import { displayViews } from "../App";
+//Full Props Type
+export type PropsType = {
+  activeDisplay: displayViews;
+  setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
+};
 
 const Header = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   //Header HTML Return

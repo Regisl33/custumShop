@@ -1,21 +1,22 @@
-import { ComputerType } from "../Context/ProductContext";
-import { useCartContextState } from "../Context/CartContext";
 import { FiMinus } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
+import { ComputerType } from "../Context/ProductContext";
+import { useCartContextState } from "../Context/CartContext";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
-
+//Props Type
 type PropsType = {
   prod: ComputerType;
 };
 
 const CartItem = ({ prod }: PropsType) => {
+  //Getting Context
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
   const { theme } = useProductDisplayContext();
-
+  //Dynamic Image URL
   const url = `./src/assets/Images/${prod.sku}.jpg`;
-
+  //Total Price Logic
   const totalPrice = prod.price * prod.qty;
-
+  //Cart Item HTML Return
   const content = (
     <div className={theme === "dark" ? "cartRow-dark" : "cartRow-light"}>
       <img

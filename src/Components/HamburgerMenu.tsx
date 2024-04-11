@@ -1,6 +1,7 @@
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const HamburgerMenu = () => {
+  //Getting Theme from Context
   const { theme } = useProductDisplayContext();
   //Toggle Function for Hamburger Menu Onclick
   const classToggle = () => {

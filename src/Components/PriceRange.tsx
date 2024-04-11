@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const PriceRange = () => {
+  //Getting Context
   const { state, dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
   //Input Range for Price HTML Return
   const content = (
@@ -26,7 +27,7 @@ const PriceRange = () => {
         }
         value={state.minPriceRange}
       />
-      <span className="radio-span">{state.minPriceRange}</span>
+      <span className="radio">{state.minPriceRange}</span>
     </li>
   );
   return content;

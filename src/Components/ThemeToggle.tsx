@@ -1,15 +1,13 @@
-import { Themes } from "../App";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { LuMoonStar } from "react-icons/lu";
+import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
-type PropsType = {
-  theme: Themes;
-  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
-};
-
-const ThemeToggle = ({ theme, setTheme }: PropsType) => {
+const ThemeToggle = () => {
+  //Getting Theme from Context
+  const { theme, setTheme } = useProductDisplayContext();
+  //Icon Switch Logic
   const pageContent = theme === "dark" ? <MdOutlineWbSunny /> : <LuMoonStar />;
-
+  //Button HTML Return
   const content = (
     <span
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

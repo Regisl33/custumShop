@@ -1,6 +1,7 @@
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const CPUCheck = () => {
+  //Getting Context
   const { state, dispatch, REDUCER_ACTIONS } = useProductDisplayContext();
   //CPU Checkbox HTML Return
   const content = (
@@ -10,7 +11,7 @@ const CPUCheck = () => {
         type="radio"
         id="amd"
         name="process"
-        className="radio"
+        className="check"
         defaultChecked={state.selectedProcess === "amd" ? true : false}
         onClick={(e: any) =>
           dispatch({
@@ -24,7 +25,7 @@ const CPUCheck = () => {
         type="radio"
         id="intel"
         name="process"
-        className="radio"
+        className="check"
         defaultChecked={state.selectedProcess === "intel" ? true : false}
         onClick={(e: any) =>
           dispatch({

@@ -6,6 +6,7 @@ import SortSelect from "./SortSelect";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const Sidebar = () => {
+  //Getting Theme from Context
   const { theme } = useProductDisplayContext();
   //Sidebar HTML Return
   const content = (

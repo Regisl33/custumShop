@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const SearchBar = () => {
+  //Getting Context
   const { state, dispatch, REDUCER_ACTIONS, theme } =
     useProductDisplayContext();
   //Search Input HTML Return

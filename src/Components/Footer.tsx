@@ -1,12 +1,7 @@
-import { displayViews } from "../App";
 import { useCartContextState } from "../Context/CartContext";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
-
-type PropsType = {
-  activeDisplay: displayViews;
-  setActiveDisplay: React.Dispatch<React.SetStateAction<displayViews>>;
-};
+import { PropsType } from "./Header";
 
 const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
   const { CartTotalPrice } = useCartContextState();

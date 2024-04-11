@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const SortSelect = () => {
+  //Getting Context
   const { dispatch, REDUCER_ACTIONS, theme } = useProductDisplayContext();
   //Sort Select HTML Return
   const content = (

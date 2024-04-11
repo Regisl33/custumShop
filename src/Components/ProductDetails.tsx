@@ -1,24 +1,26 @@
+import { IoMdCloseCircleOutline } from "react-icons/io";
 import { ComputerType } from "../Context/ProductContext";
 import { useCartContextState } from "../Context/CartContext";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
-import { IoMdCloseCircleOutline } from "react-icons/io";
-
+//Props Type
 type PropsType = {
   currentProduct: ComputerType | undefined;
 };
 
 const ProductDetails = ({ currentProduct }: PropsType) => {
+  //Getting Context
   const { dispatch, REDUCER_ACTIONS } = useCartContextState();
   const { theme } = useProductDisplayContext();
-
+  //Display Specs Logic on small Screen
   const classToggler = () => {
     const specs = document.getElementById("specs");
     specs?.classList.toggle("active");
   };
-
+  //Test if there is a current Product
   if (currentProduct) {
+    //Dynamic Image URL
     const url = `./src/assets/Images/${currentProduct.sku}.jpg`;
-
+    //Details HTML Return
     const content = (
       <figure className="product-details">
         <img
@@ -65,6 +67,7 @@ const ProductDetails = ({ currentProduct }: PropsType) => {
     );
     return content;
   } else {
+    //Display an error if there is no current Product
     const error = <h2>No product to display, try reloading the page...</h2>;
 
     return error;

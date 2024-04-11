@@ -1,16 +1,17 @@
-import { PropsType } from "../App";
-import { FaHome } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
 import SearchBar from "./SearchBar";
 import PriceRange from "./PriceRange";
 import CPUCheck from "./CPUCheck";
 import SortSelect from "./SortSelect";
 import ThemeToggle from "./ThemeToggle";
+import { FaHome } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+import { PropsType } from "./Header";
 import { useProductDisplayContext } from "../Context/ProductDisplayContext";
 
 const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
-  const { theme, setTheme } = useProductDisplayContext();
-  //Cart/Shop Switch logic
+  //Getting Theme from Context
+  const { theme } = useProductDisplayContext();
+  //Cart/Shop Button Switch Logic
   const pageContent =
     activeDisplay === "cart" ? (
       <button
@@ -41,10 +42,7 @@ const Navigation = ({ activeDisplay, setActiveDisplay }: PropsType) => {
       </ul>
       <div aria-label="Cart-Button">{pageContent}</div>
       <div aria-label="Theme-Toggle">
-        <ThemeToggle
-          theme={theme}
-          setTheme={setTheme}
-        />
+        <ThemeToggle />
       </div>
     </nav>
   );
