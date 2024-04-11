@@ -1,0 +1,33 @@
+.product-details {
+  margin: 15px auto 40px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 45% 55%;
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 50%;
+  }
+  //Specification Div
+  .specs {
+    @include justify(space-between);
+    flex-direction: column;
+    margin: 15px;
+    position: relative;
+    //To remove the specs on small screen
+    .wideSpecs {
+      @media screen and (max-width: 750px) {
+        display: none;
+      }
+    }
+    //Specification Title
+    h4 {
+      cursor: pointer;
+      margin: 5px;
+    }
+    //Small Screen Price Margin
+    p {
+      margin: 10px;
+    }
+  }
+}

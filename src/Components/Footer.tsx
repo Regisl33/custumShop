@@ -51,7 +51,7 @@ const Footer = ({ activeDisplay, setActiveDisplay }: PropsType) => {
       <p className="copyright">All rights reserved &copy; {year}</p>
       <div className="buttons">
         {pageContent}
-        {activeDisplay === "shop" ? backToTopBtn : null}
+        {activeDisplay !== "product" ? backToTopBtn : null}
       </div>
     </footer>
   );

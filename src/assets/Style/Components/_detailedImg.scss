@@ -1,0 +1,21 @@
+.img-dark,
+.img-light {
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+
+  @media screen and (max-width: 750px) {
+    width: 25%;
+    place-self: center;
+  }
+}
+//Dark Mode
+.img-dark {
+  border: 1px solid $light-100;
+  box-shadow: 1px 2px 5px 2px rgba(243, 243, 243, 0.4);
+}
+//Light Mode
+.img-light {
+  border: 1px solid $dark-900;
+  box-shadow: 1px 2px 5px 2px rgba(9, 9, 9, 0.4);
+}
